@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# displays
+
+Check ()
+{
+	echo -e "I am invincible!!!"
+}
+
+trap "Check" SIGTERM
+
+while True
+do
+	echo -e "To infinity and beyond"
+	sleep 20
+done
