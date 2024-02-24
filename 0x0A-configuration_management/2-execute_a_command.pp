@@ -1,5 +1,6 @@
-# kill a running process
+# Execute a command using puppet
+# Made by MEGA
 
-exec { 'killmenow':
-  command => '/usr/bin/pkill -f /killmenow',
+exec { 'pkill killmenow':
+  command => '/usr/bin/pkill -f /killmenow'
 }
