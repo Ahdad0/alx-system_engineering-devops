@@ -26,10 +26,9 @@ def disp():
             user_id = re.get('userId')
             Line.append((re.get('title'), re.get('completed')))
 
-    for re in response.json():
-        if re.get('userId') == int(sys.argv[1]):
-            expo.append({"task": Line[0], "completed": Line[1],
-                         "username": name})
+    for task in Line:
+        expo.append({"task": task[0], "completed": task[1],
+                     "username": name})
 
     data = {str(sys.argv[1]): expo}
     with open(f"{user_id}.json", 'w') as file:
