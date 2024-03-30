@@ -13,7 +13,7 @@ def disp():
     users = requests.get(f'https://jsonplaceholder.typicode.com/users')
     for respo in users.json():
         if respo.get('id') == int(sys.argv[1]):
-            EMPLOYEE_NAME = respo.get('username')
+            EMPLOYEE_NAME = respo.get('name')
             break
 
     response = requests.get(f'https://jsonplaceholder.typicode.com/todos')
