@@ -11,19 +11,15 @@ users = requests.get('https://jsonplaceholder.typicode.com/users')
 
 response = requests.get('https://jsonplaceholder.typicode.com/todos')
 
-Line = []
-expo = []
 data = dict()
 
 for user in users.json():
+    expo = []
     for re in response.json():
-        if user.get('id') == re.get('id'):
-            Line.append((user.get('username'), re.get('title'),
-                         re.get('completed')))
-            for task in Line:
-                expo.append({"username": task[0], "task": task[1],
-                             "completed": task[2]})
-            data[user.get('id')] = expo
+        if user['id'] == re['userId']:
+            expo.append({"username": user['username'], "task": re['title'],
+                         "completed": re['completed']})
+    data[str(user['id'])] = expo
 
 with open('todo_all_employees.json', 'w') as file:
     json.dump(data, file, sort_keys=True)
