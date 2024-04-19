@@ -17,7 +17,7 @@ def number_of_subscribers(subreddit):
 v1.0.0 (by /u/firdaus_cartoon_jr)'
     }
 
-    r = requests.get(url, headers=headers).json()
+    r = requests.get(url, headers=headers, allow_redirects=False).json()
 
     subs = r.get("data", {}).get("subscribers", 0)
 
